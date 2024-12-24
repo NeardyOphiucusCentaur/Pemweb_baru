@@ -1,0 +1,49 @@
+#container1 {
+    display: flex;
+}
+.box1 {
+    background-color: rgb(255, 255, 0);
+    height: 60px;
+    width: 125px;
+    border: 2px black ridge;
+}
+.box2 {
+    background-color: rgb(255, 98, 41);
+    height: 60px;
+    width: 840px;
+    border: 2px black ridge;
+    margin-left: 10px;
+}
+#container2 {
+    display: flex;
+}
+.box3 {
+    display: flex;
+    background-color: yellowgreen;
+    height: 450px;
+    width: 125px;
+    border: 2px black ridge;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.box4 {
+    background-color: gainsboro;
+    height: 450px;
+    width: 700px;
+    border: 2px black ridge;
+    margin-top: 10px;
+}
+.box5 {
+    background-color: rgb(118, 234, 255);
+    height: 450px;
+    width: 125px;
+    border: 2px black ridge;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.box6 {
+    background-color: rgb(49, 49, 255);
+    height: 90px;
+    border: 2px black ridge;
+    margin-top: 10px;
+}

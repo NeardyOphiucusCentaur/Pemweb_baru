@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <style>
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            font-size: large;       
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h1>Form Pemesanan</h1><br>
+        <label for="nama-pelanggan">Nama Pelanggan:</label><br>
+        <input type="text" id="nama-pelanggan" required><br>
+      
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" required><br>
+      
+        <label for="jam-keberangkatan">Jam Keberangkatan:</label><br>
+        <input type="time" id="jam-keberangkatan" required><br>
+      
+        <label for="tujuan-keberangkatan">Tujuan Keberangkatan:</label><br>
+        <input type="text" id="tujuan-keberangkatan" required><br>
+      
+        <label for="jumlah-tiket">Jumlah Tiket:</label><br>
+        <input type="number" id="jumlah-tiket" value="1" min="1" max="10" required><br>
+      
+        <button type="submit">Submit</button>
+      </form>
+      
+      <div class="data-container"></div>
+    <script>
+    const form = document.querySelector('form');
+
+    function validateForm() {
+    const errorMessages = document.querySelectorAll('.error');
+    errorMessages.forEach((error) => error.remove());
+
+    const namaPelanggan = document.querySelector('#nama-pelanggan');
+    if (namaPelanggan.value.trim() === '') {
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error');
+        errorMessage.textContent = 'Nama pelanggan harus diisi';
+        namaPelanggan.parentNode.appendChild(errorMessage);
+        return false;
+    } else if (namaPelanggan.value.length > 30) {
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error');
+        errorMessage.textContent = 'Nama pelanggan maksimum 30 karakter';
+        namaPelanggan.parentNode.appendChild(errorMessage);
+        return false;
+    }
+
+    const email = document.querySelector('#email');
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[com]{2,}$/;
+    if (!emailRegex.test(email.value)) {
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error');
+        errorMessage.textContent = 'Email tidak valid';
+        email.parentNode.appendChild(errorMessage);
+        return false;
+    }
+
+    const jamKeberangkatan = document.querySelector('#jam-keberangkatan');
+    const jamRegex = /^([01][0-9]|2[0-3]):[0-5][0-9]$/;
+    if (!jamRegex.test(jamKeberangkatan.value)) {
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error');
+        errorMessage.textContent = 'Jam keberangkatan tidak valid';
+        jamKeberangkatan.parentNode.appendChild(errorMessage);
+        return false;
+    }
+
+    const tujuanKeberangkatan = document.querySelector('#tujuan-keberangkatan');
+    if (tujuanKeberangkatan.value.trim() === '') {
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error');
+        errorMessage.textContent = 'Tujuan keberangkatan harus diisi';
+        tujuanKeberangkatan.parentNode.appendChild(errorMessage);
+        return false;
+    }
+
+    const jumlahTiket = document.querySelector('#jumlah-tiket');
+    const jumlahTiketRegex = /^[1-9]|10$/;
+    if (!jumlahTiketRegex.test(jumlahTiket.value)) {
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error');
+        errorMessage.textContent = 'Jumlah tiket tidak valid';
+        jumlahTiket.parentNode.appendChild(errorMessage);
+        return false;
+    }
+
+    const dataContainer = document.querySelector('.data-container');
+    dataContainer.innerHTML = `
+        <p>Nama Pelanggan: ${namaPelanggan.value}</p>
+        <p>Email: ${email.value}</p>
+        <p>Jam Keberangkatan: ${jamKeberangkatan.value}</p>
+        <p>Tujuan Keberangkatan: ${tujuanKeberangkatan.value}</p>
+        <p>Jumlah Tiket: ${jumlahTiket.value}</p>
+    `;
+
+    return true;
+    }
+
+    form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    validateForm();
+    });
+    </script>
+</body>
+</html>

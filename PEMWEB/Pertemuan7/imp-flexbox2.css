@@ -1,0 +1,59 @@
+body {
+    background-color: pink;
+}
+header {
+    border: 5px rgb(139, 228, 198) solid;
+    background-color: rgb(139, 228, 198);
+    margin: 20px;
+    height: 50px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}
+.container {
+    display: flex;
+}
+aside {
+    text-align: center;
+    padding: 200px 0;
+    border: 5px rgb(46, 187, 140) solid;
+    background-color: rgb(46, 187, 140);
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 30px;
+    width: 250px;
+    font-size: 35px;
+    color: white;
+}
+article {
+    text-align: center;
+    padding: 190px 0;
+    border: 5px rgb(237, 102, 125) solid;
+    background-color: rgb(237, 102, 125);
+    margin-right: 20px;
+    margin-left: 20px;
+    height: 30px;
+    width: 700px;
+    font-size: 35px;
+    color: white;
+}
+.container2 {
+    display: flex;
+}
+.image {
+    background-color: lightgray;
+    align-content: center;
+    padding: 50px;
+    width: 150px;
+    margin: 10px;
+    border: 5px lightgray solid;
+}
+footer {
+    border: 5px rgb(139, 228, 198) solid;
+    background-color: rgb(139, 228, 198);
+    margin: 20px;
+    height: 50px;
+    text-align: center;
+    font-size: 35px;
+    color: white;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pemesanan Obat Online</title>
+    <link rel="stylesheet" href="style-project.css">
+  <script src="script-project.js" defer>
+        
+  </script>
+</head>
+<body>
+    <header>
+        <h1>Selamat Datang di Apotik Jaya Abadi</h1>
+        <nav>
+          <ul>
+            <li><a href="Project_UTS.html">Kembali ke Beranda</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <section id="order">
+        <h2>Form Pemesanan Obat</h2>
+        <form id="orderForm">
+          <label for="name">Nama:</label><br>
+          <input type="text" id="name" name="name" required><br><br>
+    
+          <label for="email">Email:</label><br>
+          <input type="email" id="email" name="email" required><br><br>
+    
+          <label for="phone">Nomor Telepon:</label><br>
+          <input type="tel" id="phone" name="phone" required><br><br>
+    
+          <label for="medicine">Nama Obat:</label><br>
+          <input type="text" id="medicine" name="medicine" required><br><br>
+    
+          <label for="quantity">Jumlah:</label><br>
+          <input type="number" id="quantity" name="quantity" min="1" required><br><br>
+
+          <label for="bank">Bank:</label>
+            <select id="bank" name="bank">
+                <option value="BCA">BCA</option>
+                <option value="Mandiri">Mandiri</option>
+                <option value="BTN">BTN</option>
+                <option value="BNI">BNI</option>
+                <option value="Seabank">Seabank</option>
+            </select><br><br>
+    
+          <label for="notes">Catatan Tambahan:</label><br>
+          <textarea id="notes" name="notes"></textarea><br><br>
+    
+          <button type="submit">Pesan Sekarang</button>
+        </form>
+    
+        <div id="confirmationMessage" style="display:none; margin-top: 20px; color: green;">
+          Terima kasih! Pesanan Anda telah berhasil dikirim.
+        </div>
+      </section>
+</body>
+</html>

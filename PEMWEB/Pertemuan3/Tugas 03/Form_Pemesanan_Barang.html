@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Barang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="file"], select {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 8px;
+            margin: 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-upload {
+            display: flex;
+            justify-content: space-between;
+        }
+        .form-upload .form-group {
+            width: 48%;
+        }
+        #uploadBtn {
+            display: block;
+            margin-top: 10px;
+        }
+        #generateBtn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #generateBtn:hover {
+            background-color: darkgreen;
+        }
+        .image-preview {
+            width: 250px;
+            height: 250px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            color: #999;
+        }
+        .image-preview img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .form-submit {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(235, 235, 235);">
+<form action="Form_Hasil_Pemesanan_Barang.html">
+    <div class="container">
+        <h1>Form Pemesanan Laptop</h1>
+
+        <!-- Form Upload Gambar di Kiri dan Title di Kanan -->
+        <div class="form-upload">
+            <!-- Bagian Upload Foto -->
+            <div class="form-group">
+                <label for="uploadPicture">Upload Picture:</label>
+                <input type="file" id="uploadPicture" name="uploadPicture" accept="image/*">
+
+                <!-- Preview Gambar yang Diunggah -->
+                <div class="image-preview" id="imagePreview">
+                    <span>No image uploaded</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title Here:</label>
+                <input type="text" id="title" name="title" value="">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" value="" placeholder="Year:">
+            <input type="text" id="model" name="model" value="" placeholder="Model:">
+            <input type="text" id="condition" name="condition" value="" placeholder="Condition">
+        </div>
+
+        <div class="form-group form-row">
+            <div class="form-group">
+                <label for="accountNumber">Account Number:</label>
+                <input type="text" id="accountNumber" name="accountNumber" value="" placeholder="123-456-789">
+            </div>
+
+            <div class="form-group">
+                <label for="bank">Bank:</label>
+                <select id="bank" name="bank">
+                    <option value="HSBC" selected>HSBC</option>
+                    <option value="BCA">BCA</option>
+                    <option value="Mandiri">Mandiri</option>
+                    <option value="BTN">BTN</option>
+                    <option value="BNI">BNI</option>
+                    <option value="Seabank">Seabank</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="accountHolder">Account Holder:</label>
+            <input type="text" id="accountHolder" name="accountHolder" value="" placeholder="Name Here">
+        </div>
+
+        <div class="form-group form-row">
+            <label for="transaction">Transaction:</label>
+            <input type="number" id="transaction" name="transaction" value="1" min="1" max="3">
+        </div>
+
+        <div class="form-group">
+            <label>Send to:</label>
+            <input type="checkbox" id="mobilePhone" name="sendTo" value="mobilePhone">
+            <label for="mobilePhone" style="display: inline;">Send to Mobile Phone</label><br>
+            <input type="checkbox" id="email" name="sendTo" value="email">
+            <label for="email" style="display: inline;">Send to Email</label>
+        </div>
+
+        <div class="form-group">
+            <label for="mobileNumbers">Send to Mobile Phone:</label>
+            <input type="text" id="mobileNumbers" name="mobileNumbers" value="" placeholder="08123456789">
+        </div>
+
+        <div class="form-group">
+            <label for="emails">Send to Email:</label>
+            <input type="email" id="emails" name="emails" value="" placeholder="example@gmail.com">
+        </div>
+
+        <div class="form-submit">
+            <input type="submit" value="Pesan Sekarang">
+            <input type="reset" value="Reset">
+        </div>
+
+    </div>
+
+    <script>
+        // Script untuk menampilkan preview gambar yang diunggah
+        const uploadPicture = document.getElementById('uploadPicture');
+        const imagePreview = document.getElementById('imagePreview');
+
+        uploadPicture.addEventListener('change', function() {
+            const file = this.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.addEventListener('load', function() {
+                    imagePreview.innerHTML = '<img src="' + this.result + '" alt="Image Preview">';
+                });
+
+                reader.readAsDataURL(file);
+            } else {
+                imagePreview.innerHTML = '<span>No image uploaded</span>';
+            }
+        });
+    </script>
+</form>
+</body>
+</html>

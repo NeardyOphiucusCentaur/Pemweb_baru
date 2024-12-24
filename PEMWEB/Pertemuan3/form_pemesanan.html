@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+</head>
+<body>
+    <h1>PIZZA-KU</h1>
+
+    <form action="thankyou.html">
+        <h4>Isi Formulir di bawah</h4>
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" id="nama"><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email"><br>
+
+        <label for="phone">Nomor Telepon</label>
+        <input type="number" id="phone"><br>
+
+        <label for="address">Alamat</label>
+        <textarea type="address" id="address"></textarea><br>
+
+        <label for="instruction">Delivery Instruction</label>
+        <textarea type="instruction" id="instruction"
+        placeholder="no more than 400 character"></textarea><br>
+
+        <h4>pilih pizzamu</h4>
+        <label for="crust">Crust (Choose one):</label><br>
+        
+        <input type="radio" id="classic_white" name="crust">
+        <label for="classic_white">Classic White</label><br>
+        <input type="radio" id="whole_wheat" name="crust">
+        <label for="whole_wheat">Whole Wheat</label><br>
+        <input type="radio" id="cheese" name="crust">
+        <label for="cheese">Cheese</label><br>
+
+        <label>Topping (lebih dari satu)</label><br>
+        <input type="checkbox" name="toppings">Red Sauce<br>
+        <input type="checkbox" name="toppings">White Sauce<br>
+        <input type="checkbox" name="toppings">Mozarella<br>
+
+        <input type="submit" value="Pesan Sekarang">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
